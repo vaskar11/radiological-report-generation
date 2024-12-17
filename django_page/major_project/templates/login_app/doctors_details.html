@@ -1,0 +1,22 @@
+{% extends "login_app/base.html" %}
+
+{% block title %}Doctors Details{% endblock %}
+
+{% block content %}
+  <h1>Doctors Details</h1>
+
+  {% for emp in my_obj %}
+  <div class="doctor_card">
+    <div class="doctor_image">
+      <img src="{{ emp.doctor_image.url }}" alt="Doctor Image">
+    </div>
+    <div class="doctor_info">
+      <h3>{{ emp.doctor_name }}</h3>
+      <h4>{{ emp.doctor_spec }}</h4>
+      <p>{{ emp.doctor_details }}</p>
+    </div>
+  </div>
+  {% endfor %}
+
+
+{% endblock %}

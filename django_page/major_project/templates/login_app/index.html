@@ -1,0 +1,54 @@
+{% extends "login_app/base.html" %} {% load static %} {% block title %}Home -
+Radiological Report System{% endblock %} {% block content %}
+
+<div class="text-center">
+  <h1>Welcome to Radiological </h1>
+  <h1>Report Generation System</h1>
+</div>
+
+<!-- Image Upload Section -->
+<div class="container mt-5">
+  <form
+    method="POST"
+    action="{% url 'upload_image' %}"
+    enctype="multipart/form-data"
+  >
+    {% csrf_token %}
+    <div class="mb-3">
+      <!-- First Image Field -->
+      <div class="imgfield1">
+        <label for="xrayImage1">
+          <img src="/media/plus.png" id="pic" class="icon1" onclick="inputimg1()"/>
+        </label>
+        <input
+          class="form-control"
+          type="file"
+          id="xrayImage1"
+          accept="image/*"
+          required
+        />
+      </div>
+
+      <!-- Second Image Field -->
+      <div class="imgfield">
+        <label for="xrayImage">
+          <img src="/media/plus.png" id="pic1" class="icon2" onclick="inputimg2()" />
+        </label>
+        <input
+          class="form-control"
+          type="file"
+          id="xrayImage"
+          accept="image/*"
+          required
+        />
+      </div>
+
+      <!-- <div class="report"></div> -->
+    </div>
+    <br>
+    <hr>
+    <button type="submit" class="btn btn-primary">Generate</button>
+  </form>
+</div>
+<script src="{% static 'login_app/img.js' %}"></script>
+{% endblock %}
